@@ -5,13 +5,14 @@ function publish() {
     // ユーザ名を取得
     const userName = '';
     // 入力されたメッセージを取得
-    const message = '';
+    const message = $('#message').val();
     // 投稿内容を送信
-
-    return false;
+    socket.emit('sendMessageEvent', message);
 }
 
 // サーバから受信した投稿メッセージを画面上に表示する
-socket.on('', function (data) {
-    $('#thread').prepend('<p>' + '</p>');
+socket.on('receiveMessageEvent', function (data) {
+
+    // 画面上にメッセージを表示
+    $('#thread').prepend('<p>' + data + '</p>');
 });
