@@ -8,7 +8,10 @@ module.exports = function (socket, io) {
             return;
         }
 
-        console.log(`クライアントの入力値\n  userName: ${userName}, message: ${message}`);
+        let datetime = new Date(new Date().toLocaleString({timeZone: 'Asia/Tokyo'}));
+        let datetimeObject = {month: datetime.getMonth()+1, day: datetime.getDate(), hour: datetime.getHours(), minute: ( '00' + datetime.getMinutes() ).slice(-2)}
+
+        console.log(`クライアントの入力値\n  userName: ${userName}, message: ${message}, datetime: ${new Date()}`);
 
         let messageMyself = message;
 
@@ -24,9 +27,9 @@ module.exports = function (socket, io) {
         
 
         // 全クライアントが受信するメッセージ表示イベントを送信する
-        socket.emit('receiveMyselfMessageEvent', messageMyself, userName, position);
+        socket.emit('receiveMyselfMessageEvent', messageMyself, userName, position, datetimeObject);
 
-        socket.broadcast.emit('receiveOtherMessageEvent', messageOther, userName, position);
+        socket.broadcast.emit('receiveOtherMessageEvent', messageOther, userName, position, datetimeObject);
 
     });
 

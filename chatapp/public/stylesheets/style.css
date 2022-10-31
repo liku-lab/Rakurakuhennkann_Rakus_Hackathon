@@ -21,7 +21,7 @@ div {
  * ボタンの共通設定
  */
 .common-button {
-
+    width: 50%;
 }
 
 /*
@@ -46,6 +46,10 @@ div {
 /*
  * チャットルーム画面（room.hbs）に関する設定
  */
+.chat {
+    max-width: 600px;
+    margin: 0 auto;
+}
 .room-login_user {
 
  }
@@ -71,7 +75,19 @@ div {
 }
 
 .room-thread {
+    border-radius: 0.5rem;
+}
 
+.exit-message{
+    color:white;
+    background-color:dimgray;
+    border-radius: 0.5rem;
+}
+
+.enter-message{
+    color:white;
+    background-color:dimgray;
+    border-radius: 0.5rem;
 }
 
 .room-exit {
