@@ -83,7 +83,8 @@ form {
  * チャットルーム画面（room.hbs）に関する設定
  */
 .chat {
-    max-width: 600px;
+    width: 90%;
+    height: 100%;
     margin: 0 auto;
 }
 .room-login_user {
@@ -112,6 +113,7 @@ form {
 
 .room-thread {
     border-radius: 0.5rem;
+    white-space: pre-wrap;
 }
 
 .exit-message{
