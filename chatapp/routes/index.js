@@ -10,14 +10,14 @@ router.get('/', function (request, response, next) {
 
 // チャット画面の表示
 router.post('/room', function (request, response, next) {
-    console.log('ユーザ名：' + request.body.userName);
-    response.render('room', { userName: request.body.userName });
+    console.log('ユーザ名：' + request.body.userName + request.body.position);
+    response.render('room', { userName: request.body.userName, position: request.body.position });
 });
 
 // 誰に送るかの画面の表示
 router.post('/person', function (request, response, next) {
-    console.log('ユーザ名：' + request.body.userName);
-    response.render('person', { userName: request.body.userName });
+    console.log('ユーザ名：' + request.body.userName + request.body.position);
+    response.render('person', { userName: request.body.userName, position: request.body.position });
 });
 
 module.exports = router;
