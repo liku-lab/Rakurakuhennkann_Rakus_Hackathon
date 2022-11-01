@@ -15,5 +15,7 @@ socket.on('enterMyselfEvent', function (data) {
 */
 
 socket.on('receiveEnterEvent', function (data) {
-    $('#thread').prepend('<p>' + data + '</p>');
+    $('#thread').prepend(
+        '<div class="enter-message d-flex justify-content-center"><p class="text-center p-2 ms-2 mb-0">' + data + '</p></div>'
+    );
 });
