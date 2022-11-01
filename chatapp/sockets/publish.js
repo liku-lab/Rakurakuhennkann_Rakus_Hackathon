@@ -25,7 +25,6 @@ module.exports = function (socket, io) {
 
         console.log(messageOther);
         
-
         // 全クライアントが受信するメッセージ表示イベントを送信する
         socket.emit('receiveMyselfMessageEvent', messageMyself, userName, position, datetimeObject);
 
