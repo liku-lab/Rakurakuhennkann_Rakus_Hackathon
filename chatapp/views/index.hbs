@@ -1,15 +1,34 @@
 <div class="container">
     <div class="row">
-        <h1>Node Chat サンプル</h1>
+        <h1 class="logo">チャット</h1>
     </div>
-    <div class="row">
+
+    <div class="row login">
         <form method="post" action="/person">
             <div class="index-user_name">
-                ユーザ名
-                <input type="text" id="userName" name="userName" class="index-user_name_text">
+                <input
+                    type="text"
+                    id="userName"
+                    name="userName"
+                    class="index-user_name_text"
+                    placeholder="ユーザ名"
+                />
             </div>
+
+            <div class="index-position">
+                <select id="position" name="position">
+                    <option value="position-boss">上司</option>
+                    <option value="position-sub" selected>部下</option>
+                </select>
+            </div>
+
             <div class="index-enter">
-                <input type="submit" value="入室する" class="common-button index-enter_button">
+                <input
+                    type="submit"
+                    value="ログイン"
+                    class="common-button index-enter_button"
+                />
+
             </div>
         </form>
     </div>
