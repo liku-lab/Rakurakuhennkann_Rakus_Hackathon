@@ -6,6 +6,9 @@ function publish() {
     const userName = $('#userName').val();
     // 入力されたメッセージを取得
     const message = $('#message').val();
+
+    var textForm = document.getElementById("message");
+    textForm.value = '';
     // メッセージを取得
     const position = '上司'
 
