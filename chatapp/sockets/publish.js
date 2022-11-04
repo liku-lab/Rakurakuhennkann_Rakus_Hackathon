@@ -7,6 +7,15 @@ module.exports = function (socket, io) {
         if (!message || !userName) {
             return;
         }
+        const sqlite3 = require("sqlite3");
+        const db = new sqlite3.Database("./test.db");
+
+        db.serialize(() => {
+            db.run("insert into messages(user_id,content,datetime,username_to) values(?,?,?,?)", 1, message, new Date(), "田中");
+            db.all("select * from messages", (err, rows) => {
+                console.log(JSON.stringify(rows));
+            });
+        });
 
         let datetime = new Date(new Date().toLocaleString({timeZone: 'Asia/Tokyo'}));
         let datetimeObject = {month: datetime.getMonth()+1, day: datetime.getDate(), hour: datetime.getHours(), minute: ( '00' + datetime.getMinutes() ).slice(-2)}
