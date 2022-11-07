@@ -2,7 +2,7 @@
 
 module.exports = function (socket) {
     // 退室メッセージをクライアントに送信する
-    socket.on('sendExitEvent', function(userName){
-        socket.broadcast.emit('receiveExitEvent', userName + 'さんが退出しました。');
+    socket.on('sendExitEvent', function(userName, position){
+        socket.broadcast.emit('receiveExitEvent', userName + 'さん(' + position + ')が退出しました。');
     });
 };

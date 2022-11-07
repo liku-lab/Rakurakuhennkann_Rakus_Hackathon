@@ -42,13 +42,13 @@ router.get('/', function (request, response, next) {
 
 // チャット画面の表示
 router.post('/room', function (request, response, next) {
-    console.log('ユーザ名：' + request.body.userName);
-    response.render('room', { userName: request.body.userName });
+    console.log('ユーザ名：' + request.body.userName + request.body.position);
+    response.render('room', { userName: request.body.userName, position: request.body.position });
 });
 
 // 誰に送るかの画面の表示
 router.post('/person', function (request, response, next) {
-    console.log('ユーザ名：' + request.body.userName);
+    console.log('ユーザ名：' + request.body.userName + request.body.position);
     let promise = getData();
     var data;
     promise.then((results) => {
@@ -57,7 +57,7 @@ router.post('/person', function (request, response, next) {
     });
     promise.then(() => {
         console.log(data);
-        response.render('person', { userName: request.body.userName, data: data});  
+        esponse.render('person', { userName: request.body.userName, position: request.body.position });
     })
 });
 

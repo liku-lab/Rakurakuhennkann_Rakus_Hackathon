@@ -3,8 +3,10 @@
 // 入室メッセージをサーバに送信する
 // 入力されたユーザ名を取得する
 const userName = $('#userName').val();
+// 役職取得
+const position = $('#position').val();
 // 入室メッセージイベントを送信する
-socket.emit('sendEnterEvent', userName);
+socket.emit('sendEnterEvent', userName, position);
 
 
 // サーバから受信した入室メッセージを画面上に表示する

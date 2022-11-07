@@ -20,14 +20,20 @@
         <div class="chat bg-light p-4">
             <form method="post" action="/">
                 <div class="room-login_user d-flex justify-content-center">
-                    ログインユーザ：{{userName}}さん
-                    <input id="userName" type="hidden" value="{{userName}}">
+                    ログインユーザ：{{userName}}さん（{{position}}）
+                    <input id="userName" type="hidden" value="{{userName}}" />
+                    <input id="position" type="hidden" value="{{position}}" />
                 </div>
                 <div class="room-thread center-block">
                     <div class="center-block" id="thread"></div>
                 </div>
                 <div class="room-message d-flex justify-content-center">
-                    <textarea id="message" rows="2" class="room-message_textarea form-control" placeholder="投稿文を入力してください"></textarea>
+                    <textarea
+                        id="message"
+                        rows="2"
+                        class="room-message_textarea form-control"
+                        placeholder="投稿文を入力してください"
+                    ></textarea>
                 </div>
                 <div class="room-submit d-flex justify-content-center">
                     <input type="button" value="投稿" class="common-button room-publish_button btn btn-success m-4" onclick="publish();">

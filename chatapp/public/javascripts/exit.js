@@ -4,8 +4,10 @@
 function exit() {
     // ユーザ名取得
     const userName = $('#userName').val();
+    // 役職取得
+    const position = $('#position').val();
     // 体質メッセージイベントを送信する
-    socket.emit('sendExitEvent', userName);
+    socket.emit('sendExitEvent', userName, position);
     // 退室
     location.href = '/';
 }
