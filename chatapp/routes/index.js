@@ -57,7 +57,7 @@ router.post('/person', function (request, response, next) {
     });
     promise.then(() => {
         console.log(data);
-        esponse.render('person', { userName: request.body.userName, position: request.body.position });
+        response.render('person', { userName: request.body.userName, position: request.body.position, data: data });
     })
 });
 

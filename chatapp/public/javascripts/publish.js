@@ -1,7 +1,7 @@
 'use strict';
 
 // 投稿メッセージをサーバに送信する
-function publish() {
+function publish(position) {
     // ユーザ名を取得
     const userName = $('#userName').val();
     // 入力されたメッセージを取得
