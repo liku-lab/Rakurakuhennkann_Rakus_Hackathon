@@ -9,6 +9,15 @@
         <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
         <script src="/socket.io/socket.io.js"></script>
+        <script>
+            $(function() {
+                $('.container').outerHeight($(window).height());
+            });
+            $(window).on('resize',function(){
+                winH = $(window).height();
+                $('.container').outerHeight(winH);
+            });
+        </script>
     </head>
     <body>
         {{{body}}}
