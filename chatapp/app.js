@@ -22,7 +22,6 @@ db.serialize(() => {
     db.run("insert into users(name,position) values(?,?)", "佐藤", "上司");
     db.run("insert into users(name,position) values(?,?)", "田中", "部下");
     db.run("insert into messages(user_id,content,datetime,username_to) values(?,?,?,?)", 1, "こんにちは", new Date(), "田中");
-
 });
 
 module.exports.db = db;
