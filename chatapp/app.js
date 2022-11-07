@@ -21,7 +21,7 @@ db.serialize(() => {
     db.run("create table if not exists messages(id integer primary key, user_id integer,original_content,convert_content,datetime timestamp,username_to)");
     db.run("insert into users(name,position) values(?,?)", "佐藤", "上司");
     db.run("insert into users(name,position) values(?,?)", "田中", "部下");
-    db.run("insert into messages(user_id,original_content,convert_content,datetime,username_to) values(?,?,?,?,?)", 1, "こんにちは", "お世話になっております", new Date(), "田中");
+    // db.run("insert into messages(user_id,original_content,convert_content,datetime,username_to) values(?,?,?,?,?)", 1, "こんにちは", "お世話になっております", new Date(), "田中");
 });
 
 module.exports.db = db;
