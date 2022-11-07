@@ -10,7 +10,6 @@ function publish() {
     var textForm = document.getElementById("message");
     textForm.value = '';
     // メッセージを取得
-    const position = '上司'
 
     // 自クライアントに投稿内容を送信する
     socket.emit('sendMessageEvent', message, userName, position);

@@ -26,10 +26,22 @@ module.exports = function (socket, io) {
 
         let messageOther = message;
         
-        let originalList = ['どうですか', 'お世話になります'];
-        let convertList = ['どんな感じ', '元気してる'];
-        for(let i=0; i<originalList.length; i++){
-            messageOther = messageOther.replace(originalList[i], convertList[i]);
+        if (position === '上司') {
+            let originalList = ['お疲れ', '承知'];
+            let convertList = ['お疲れ様〜。書類間に合いそう？', 'OK。明日の9時までやから頑張って'];
+            for (let i = 0; i < originalList.length; i++) {
+                if (~messageOther.indexOf(originalList[i])) {
+                    messageOther = convertList[i];
+                }   
+            }
+        } else {
+            let originalList = ['ごめん', '了解'];
+            let convertList = ['申し訳ありません。まだ完成しておりません。', '承知しました。'];
+            for (let i = 0; i < originalList.length; i++) {
+                if (~messageOther.indexOf(originalList[i])) {
+                    messageOther = convertList[i];
+                }   
+            }
         }
 
         console.log(messageOther);
