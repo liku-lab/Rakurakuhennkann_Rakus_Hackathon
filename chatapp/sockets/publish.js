@@ -10,20 +10,7 @@ module.exports = function (socket, io) {
         const sqlite3 = require("sqlite3");
         const db = new sqlite3.Database("./test.db");
 
-        db.serialize(() => {
-            db.run("insert into messages(user_id,content,datetime,username_to) values(?,?,?,?)", 1, message, new Date(), "田中");
-            db.all("select * from messages", (err, rows) => {
-                console.log(JSON.stringify(rows));
-            });
-        });
-
-        let datetime = new Date(new Date().toLocaleString({timeZone: 'Asia/Tokyo'}));
-        let datetimeObject = {month: datetime.getMonth()+1, day: datetime.getDate(), hour: datetime.getHours(), minute: ( '00' + datetime.getMinutes() ).slice(-2)}
-
-        console.log(`クライアントの入力値\n  userName: ${userName}, message: ${message}, datetime: ${new Date()}`);
-
         let messageMyself = message;
-
         let messageOther = message;
         
         if (position === '上司') {
@@ -43,6 +30,20 @@ module.exports = function (socket, io) {
                 }   
             }
         }
+
+        db.serialize(() => {
+            //demo用に、上司ならuser_idを1,部下なら2にしている
+            db.run("insert into messages(user_id,original_content,convert_content,datetime,username_to) values(?,?,?,?,?)", (position === '上司') ? 1 : 2, messageMyself,messageOther ,new Date(), "田中");
+            db.all("select * from messages", (err, rows) => {
+                console.log(JSON.stringify(rows));
+            });
+        });
+
+        let datetime = new Date(new Date().toLocaleString({timeZone: 'Asia/Tokyo'}));
+        let datetimeObject = {month: datetime.getMonth()+1, day: datetime.getDate(), hour: datetime.getHours(), minute: ( '00' + datetime.getMinutes() ).slice(-2)}
+
+        console.log(`クライアントの入力値\n  userName: ${userName}, message: ${message}, datetime: ${new Date()}`);
+
 
         console.log(messageOther);
         
