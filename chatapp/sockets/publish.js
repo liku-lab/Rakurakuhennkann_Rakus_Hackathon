@@ -15,7 +15,7 @@ module.exports = function (socket, io) {
         
         if (position === '上司') {
             let originalList = ['お疲れ', '承知'];
-            let convertList = ['お疲れ様〜。\n書類間に合いそう？', 'OK。\n明日の9時までやから頑張って'];
+            let convertList = ['お疲れ様〜。\n書類間に合いそう？', 'OK&#128076 \n明日の9時までやから頑張って&#128077'];
             for (let i = 0; i < originalList.length; i++) {
                 if (~messageOther.indexOf(originalList[i])) {
                     messageOther = convertList[i];

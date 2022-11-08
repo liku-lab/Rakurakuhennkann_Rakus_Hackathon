@@ -5,12 +5,6 @@ function enter() {
     // 入力されたユーザ名を取得する
     const userName = $('#userName').val();
     const position = $('#positon').val();
-    $('form').submit();
-    
-}
-
-function nameCheck() {
-    const userName = $('#userName').val();
 
     // ユーザ名が未入力でないかチェックする
     if (userName !== '') {
