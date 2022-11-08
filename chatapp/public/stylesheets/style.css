@@ -30,6 +30,11 @@ div {
  */
 .logo {
     text-align: center;
+    width: 100%;
+}
+
+.icon {
+    width: 5%;
 }
 
 .login-logo {
@@ -40,6 +45,10 @@ div {
 .container {
     width: 100%;
     height: 100%;
+}
+
+.room-container {
+    background-color: #FCE2C4;
 }
 
 .row.login {
@@ -107,7 +116,7 @@ form {
 }
 
 .room-message_textarea {
-    width: 500px;
+    width: 100%;
 }
 
 .room-submit {
@@ -139,9 +148,6 @@ form {
     border-radius: 0.5rem;
 }
 
-.room-exit {
-
-}
 
 .room-exit_button {
 
