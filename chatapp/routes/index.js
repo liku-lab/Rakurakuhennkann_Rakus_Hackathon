@@ -52,12 +52,23 @@ router.post('/person', function (request, response, next) {
     let promise = getData();
     var data;
     promise.then((results) => {
-        console.log(results.content);
+        // console.log(results.content);
         data = results;
     });
     promise.then(() => {
         console.log(data);
-        esponse.render('person', { userName: request.body.userName, position: request.body.position });
+        var content;
+        var name;
+
+        (request.body.position === '上司') ? name = "AAA" : name = "ZZZ";
+        
+        if (data !== undefined) {
+            (request.body.position === '部下' && data.user_id === 1) ? content = data.convert_content : content = data.original_content;
+            (request.body.position === '上司' && data.user_id === 2) ? content = data.convert_content : content = data.original_content;
+        } else {
+            content = "なし";
+        }
+        response.render('person', { userName: request.body.userName, position: request.body.position, content: content, name: name });
     })
 });
 

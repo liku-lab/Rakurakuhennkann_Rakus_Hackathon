@@ -10,8 +10,30 @@ module.exports = function (socket, io) {
         const sqlite3 = require("sqlite3");
         const db = new sqlite3.Database("./test.db");
 
+        let messageMyself = message;
+        let messageOther = message;
+        
+        if (position === '上司') {
+            let originalList = ['お疲れ', '承知'];
+            let convertList = ['お疲れ様〜。\n書類間に合いそう？', 'OK。\n明日の9時までやから頑張って'];
+            for (let i = 0; i < originalList.length; i++) {
+                if (~messageOther.indexOf(originalList[i])) {
+                    messageOther = convertList[i];
+                }   
+            }
+        } else {
+            let originalList = ['ごめん', '了解'];
+            let convertList = ['申し訳ありません。\nまだ完成しておりません。', '承知しました。'];
+            for (let i = 0; i < originalList.length; i++) {
+                if (~messageOther.indexOf(originalList[i])) {
+                    messageOther = convertList[i];
+                }   
+            }
+        }
+
         db.serialize(() => {
-            db.run("insert into messages(user_id,content,datetime,username_to) values(?,?,?,?)", 1, message, new Date(), "田中");
+            //demo用に、上司ならuser_idを1,部下なら2にしている
+            db.run("insert into messages(user_id,original_content,convert_content,datetime,username_to) values(?,?,?,?,?)", (position === '上司') ? 1 : 2, messageMyself,messageOther ,new Date(), "田中");
             db.all("select * from messages", (err, rows) => {
                 console.log(JSON.stringify(rows));
             });
@@ -22,27 +44,6 @@ module.exports = function (socket, io) {
 
         console.log(`クライアントの入力値\n  userName: ${userName}, message: ${message}, datetime: ${new Date()}`);
 
-        let messageMyself = message;
-
-        let messageOther = message;
-        
-        if (position === '上司') {
-            let originalList = ['お疲れ', '承知'];
-            let convertList = ['お疲れ様〜。書類間に合いそう？', 'OK。明日の9時までやから頑張って'];
-            for (let i = 0; i < originalList.length; i++) {
-                if (~messageOther.indexOf(originalList[i])) {
-                    messageOther = convertList[i];
-                }   
-            }
-        } else {
-            let originalList = ['ごめん', '了解'];
-            let convertList = ['申し訳ありません。まだ完成しておりません。', '承知しました。'];
-            for (let i = 0; i < originalList.length; i++) {
-                if (~messageOther.indexOf(originalList[i])) {
-                    messageOther = convertList[i];
-                }   
-            }
-        }
 
         console.log(messageOther);
         
