@@ -1,30 +1,61 @@
 <div class="container">
-    <div class="row">
-        <h1>Node Chat チャットルーム</h1>
+    <div class="row m-0">
+        <div class="col-3"><img class="logo m-3" src="/images/logo.png"></div>
     </div>
-    <div class="row">
-        <form method="post" action="/">
-            <div class="room-login_user">
-                ログインユーザ：さん
-                <input id="userName" type="hidden" value="">
+    <div class="row m-0">
+        <div class="col-2">
+            <table class="table d-flex bg-white justify-content-center rounded">
+                <tr><th>入室中のユーザ</th></tr>
+                <tr><td>山田さん</td></tr>
+                <tr><td>佐藤さん</td></tr>
+                <tr><td>田中さん</td></tr>
+                <tr><td>池田さん</td></tr>
+                <tr><td>  </td></tr>
+            </table>
+            <table class="table d-flex bg-white justify-content-center rounded">
+                <tr><th>退室中のユーザ</th></tr>
+                <tr><td>山本さん</td></tr>
+                <tr><td>  </td></tr>
+            </table>
+        </div>
+        <div class="col-10">
+            <nav class="navbar navbar-light rounded bg-white">
+                <div class="container-fluid m-0">
+                    <span class="navbar-brand m-0 h1"><h4 class="font-weight-bold m-0" id="chat-header"></h4></span>
+                </div>
+            </nav>
+            <div class="chat bg-light p-4 w-100">
+                <form method="post" action="/">
+                    <div class="room-login_user d-flex justify-content-center">
+                        <input id="userName" type="hidden" value="{{userName}}" />
+                        <input id="position" type="hidden" value="{{position}}" />
+                    </div>
+                    <div class="room-thread center-block">
+                        <div class="center-block" id="thread"></div>
+                    </div>
+                    <div class="room-message d-flex justify-content-center">
+                        <textarea
+                            id="message"
+                            rows="2"
+                            class="room-message_textarea form-control"
+                            placeholder="投稿文を入力してください"
+                        ></textarea>
+                    </div>
+                    <div class="room-submit d-flex justify-content-center">
+                        <input type="button" value="投稿" class="common-button room-publish_button btn btn-success m-4" onclick="publish('{{position}}');">
+                    </div>
+                </form>
+                <form method="post" action="/">
+                    <div class="room-exit d-flex justify-content-center">
+                        <input type="button" value="退室する" class="common-button room-exit_button btn btn-primary m-4" onclick="exit();">
+                    </div>
+                </form>
             </div>
-            <div class="room-message">
-                <textarea id="message" rows="4" class="room-message_textarea" placeholder="投稿文を入力してください"></textarea>
-            </div>
-            <div class="room-submit">
-                <input type="button" value="投稿" class="common-button room-publish_button" onclick="publish();">
-                <input type="button" value="メモ" class="common-button room-memo_button" onclick="memo();">
-            </div>
-            <div class="room-thread">
-                <div id="thread"></div>
-            </div>
-            <div class="room-exit">
-                <input type="button" value="退室する" class="common-button room-exit_button" onclick="exit();">
-            </div>
-        </form>
+        </div>
     </div>
 </div>
 
+<script src="/javascripts/chat_header.js"></script>
 <script src="/javascripts/socket.js"></script>
 <script src="/javascripts/enter.js"></script>
 <script src="/javascripts/publish.js"></script>

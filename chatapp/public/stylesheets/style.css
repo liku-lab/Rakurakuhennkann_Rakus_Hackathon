@@ -3,6 +3,7 @@
  */
 body {
     font: 14px "Lucida Grande", Meiryo, Helvetica, Arial, sans-serif;
+    background-color: #FCE2C4;
 }
 
 a {
@@ -11,6 +12,7 @@ a {
 
 div {
     margin: 20px 0px;
+
 }
 
 .row {
@@ -21,18 +23,56 @@ div {
  * ボタンの共通設定
  */
 .common-button {
-
+    width: 50%;
 }
 
 /*
  * トップ画面（index.hbs）に関する設定
  */
-.index-user_name {
+.logo {
+    text-align: center;
+    width: 100%;
+}
 
+.icon {
+    width: 5%;
+}
+
+.login-logo {
+    width: 30%;
+    height: 30%;
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+}
+
+.room-container {
+    background-color: #FCE2C4;
+}
+
+.row.login {
+    width: 400px;
+    height: 300px;
+    background-color: #F5F5F5;
+    margin: 0 auto;
+}
+
+.index-user_name {
+    
 }
 
 .index-user_name_text {
-    width: 200px;
+    width: 250px;
+    height: 50px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 100;
+}
+
+.login-form {
+    padding: 30px;
 }
 
 .index-enter {
@@ -40,12 +80,34 @@ div {
 }
 
 .index-enter_button {
+    width: 250px;
+    height: 50px;
+    background-color: #FDAD36;
+    color: white;
+    border: none;
+    font-size: 20px;
+}
 
+#position {
+    color: rgba(0, 0, 0, 0.603);
+    width: 250px;
+    height: 50px;
+    text-align: center;
+    font-size: 20px;
+}
+
+form {
+    margin: 0 auto;
 }
 
 /*
  * チャットルーム画面（room.hbs）に関する設定
  */
+.chat {
+    width: 90%;
+    height: 100%;
+    margin: 0 auto;
+}
 .room-login_user {
 
  }
@@ -55,7 +117,7 @@ div {
 }
 
 .room-message_textarea {
-    width: 500px;
+    width: 100%;
 }
 
 .room-submit {
@@ -71,12 +133,22 @@ div {
 }
 
 .room-thread {
-
+    border-radius: 0.5rem;
+    white-space: pre-wrap;
 }
 
-.room-exit {
-
+.exit-message{
+    color:white;
+    background-color:dimgray;
+    border-radius: 0.5rem;
 }
+
+.enter-message{
+    color:white;
+    background-color:dimgray;
+    border-radius: 0.5rem;
+}
+
 
 .room-exit_button {
 

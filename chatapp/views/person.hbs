@@ -1,0 +1,80 @@
+<form method="post" action="/room">
+    <input id="userName" name="userName" type="hidden" value="{{userName}}" />
+    <input id="position" name="position" type="hidden" value="{{position}}" />
+    <div class="container">
+        <div class="row m-0">
+            <div class="col-3"><img class="logo m-3" src="/images/logo.png"></div>   
+        </div>
+        <div class="row my-0">
+            <div class="col-sm-6 mb-0">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">{{name}}さん</h5>
+                        <p class="card-text">履歴 {{content}}</p>
+                        <div class="index-enter">
+                            <input
+                                type="button"
+                                value="入室する"
+                                class="btn btn-success"
+                                onclick="enter();"
+                            />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 mb-0">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">山本さん</h5>
+                        <p class="card-text">履歴 なし</p>
+                        <div class="index-enter">
+                            <input
+                                type="button"
+                                value="入室する"
+                                class="btn btn-success"
+                                onclick="enter();"
+                            />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row my-0">
+            <div class="col-sm-6 mb-0">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">池田さん</h5>
+                        <p class="card-text">履歴 なし</p>
+                        <div class="index-enter">
+                            <input
+                                type="button"
+                                value="入室する"
+                                class="btn btn-success"
+                                onclick="enter();"
+                            />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 mb-0">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">山田さん</h5>
+                        <p class="card-text">履歴 なし</p>
+                        <div class="index-enter">
+                            <input
+                                type="button"
+                                value="入室する"
+                                class="btn btn-success"
+                                onclick="enter();"
+                            />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+<script src="/javascripts/index.js"></script>
