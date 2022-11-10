@@ -1,2 +1,2 @@
-# hackathon-oa-B
-[![Gitter](https://badges.gitter.im/2022A-hackathon-oa-B/community.svg)](https://gitter.im/2022A-hackathon-oa-B/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
+# Rakus_Hackathon
+ラクスのハッカソンで作成した企業向けのチャットツール．堅い表現のない世界を実現
